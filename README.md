@@ -75,30 +75,16 @@ func testHello() {
 
 ```
 
-... you first you need to configure your `Application` object in a test environment. To do that I would recommend creating some form of a helper method that would allow you to access the functionality from any file. In the following example (`Application+Testing.swift`) you can see an extension on a testable property which holds all the convenience methods.
+... you first you need to configure your `Application` object in a test environment. To do that I would recommend creating some form of a helper method that would allow you to access the functionality from any file.
 
-Following method will be available through `Application.testable.newTestApp()`
+```swift
+let app = new({ (config, env, services) in
+    try! App.configure(&config, &env, &services)
+}) { (router) in
 
-```Swift
-import Foundation
-import App
-import Vapor
-import VaporTestTools
-
-
-extension TestableProperty where TestableType: Application {
-    
-    public static func newTestApp() -> Application {
-        let app = new({ (config, env, services) in
-            try! App.configure(&config, &env, &services)
-        }) { (router) in
-            
-        }
-        return app
-    }
-    
 }
 ```
+* I would recommend to put the above initialization in a convenience method as described [here](#custom-application-convenience-method)
 
 And finally create your test file
 
@@ -173,6 +159,30 @@ class GenericControllerTests: XCTestCase {
 
 ```
 
+#### Custom `Application` convenience method
+
+In the following example (`Application+Testing.swift`) you can see an extension on a testable property which holds all the convenience methods. This will be available through `Application.testable.newTestApp()`
+
+```Swift
+import Foundation
+import App
+import Vapor
+import VaporTestTools
+
+
+extension TestableProperty where TestableType: Application {
+    
+    public static func newTestApp() -> Application {
+        let app = new({ (config, env, services) in
+            try! App.configure(&config, &env, &services)
+        }) { (router) in
+            
+        }
+        return app
+    }
+    
+}
+```
 
 ## Author
 
