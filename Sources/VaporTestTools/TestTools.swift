@@ -38,5 +38,10 @@ extension Response: Testable { }
 extension Application: Testable { }
 
 
+extension Dictionary: Testable where Key == String, Value == String {
+    public typealias ObjectType = [String : String]
+}
+
+
 
 

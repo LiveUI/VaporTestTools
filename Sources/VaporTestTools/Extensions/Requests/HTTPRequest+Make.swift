@@ -13,7 +13,10 @@ import Routing
 extension TestableProperty where TestableType == HTTPRequest {
     
     public static func request(method: HTTPMethod, uri: URI, data: Data? = nil, headers: [String: String]? = nil) -> HTTPRequest {
-        let req = HTTPRequest(method: method, uri: uri)
+        var req = HTTPRequest(method: method, uri: uri)
+        if let headers = headers {
+            req.headers = headers.testable.asHTTPHeaders()
+        }
         return req
     }
     
