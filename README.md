@@ -134,7 +134,21 @@ class GenericControllerTests: XCTestCase {
         let req = HTTPRequest.testable.get(uri: "/ping")
         let res = app.testable.response(to: req)
         
+        // Print out info about the Response
         res.testable.debug()
+        /*
+        Debugging response:
+        HTTP [1.1] with status code [200]
+        Headers:
+            Content-Type = application/json; charset=utf-8
+            Content-Length = 15
+            Date = Wed, 28 Feb 2018 00:52:02 GMT
+        Content:
+            Size: 15
+            Media type: application/json; charset=utf-8
+            Content:
+        {"code":"pong"}
+        */
         
         XCTAssertTrue(res.testable.has(statusCode: .ok), "Wrong status code")
         XCTAssertTrue(res.testable.has(contentType: "application/json; charset=utf-8"), "Missing content type")
