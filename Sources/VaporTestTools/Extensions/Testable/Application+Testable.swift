@@ -32,7 +32,7 @@ extension TestableProperty where TestableType: Application {
     public func response(to request: HTTPRequest) -> Response {
         let responder = try! element.make(Responder.self)
         let wrappedRequest = Request(http: request, using: element)
-        return try! responder.respond(to: wrappedRequest).blockingAwait()
+        return try! responder.respond(to: wrappedRequest).await(on: element)
     }
     
 }
