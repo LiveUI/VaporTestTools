@@ -17,6 +17,9 @@ extension TestableProperty where TestableType == HTTPRequest {
         if let headers = headers {
             req.headers = headers.testable.asHTTPHeaders()
         }
+        if let data = data {
+            req.body = HTTPBody(data)
+        }
         return req
     }
     
