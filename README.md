@@ -25,6 +25,8 @@ Import
 
 ```swift
 .package(url: "https://github.com/LiveUI/VaporTestTools.git", from: "0.0.1")
+// or to get the latest changes
+.package(url: "https://github.com/LiveUI/VaporTestTools.git", .branch("master"))
 ```
 
 Your whole `Package.swift` file could look something like this:
