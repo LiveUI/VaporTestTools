@@ -17,15 +17,15 @@ let package = Package(
             ]
         ),
         .target(
-            name: "App",
+            name: "AppVaporTestTools",
             dependencies: [
                 "Vapor"
             ]
         ),
-        .target(name: "Run", dependencies: [
-            "App"
+        .target(name: "RunVaporTestTools", dependencies: [
+            "AppVaporTestTools"
             ]),
-        .testTarget(name: "AppTests", dependencies: ["App", "VaporTestTools"])
+        .testTarget(name: "VaporTestToolsTests", dependencies: ["AppVaporTestTools", "VaporTestTools"])
     ]
 )
 

@@ -14,6 +14,16 @@ class GenericControllerTests: XCTestCase {
     
     var app: Application!
     
+    // MARK: Linux
+    
+    static let allTests = [
+        ("testHello", testHello),
+        ("testPing", testPing),
+        ("testNotFound", testNotFound),
+        ("testHash", testHash)
+    ]
+
+    
     // MARK: Setup
     
     override func setUp() {
