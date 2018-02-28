@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import App
+import AppVaporTestTools
 import Vapor
 import VaporTestTools
 
@@ -15,11 +15,11 @@ extension TestableProperty where TestableType: Application {
     
     public static func newTestApp() -> Application {
         let app = new({ (config, env, services) in
-            try! App.configure(&config, &env, &services)
+            try! AppVaporTestTools.configure(&config, &env, &services)
         }) { (router) in
             
         }
-        try! App.boot(app)
+        try! AppVaporTestTools.boot(app)
         return app
     }
     
