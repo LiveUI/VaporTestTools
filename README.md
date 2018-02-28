@@ -169,8 +169,6 @@ class GenericControllerTests: XCTestCase {
 
 ```
 
-Enjoy and let me know what you think ;)
-
 #### Custom `Application` convenience method
 
 In the following example (`Application+Testing.swift`) you can see an extension on a testable property which holds all the convenience methods. This will be available through `Application.testable.newTestApp()`
@@ -195,6 +193,8 @@ extension TestableProperty where TestableType: Application {
     
 }
 ```
+
+Enjoy and let me know what you think ;)
 
 ## Author
 
