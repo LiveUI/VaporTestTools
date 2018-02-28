@@ -78,7 +78,7 @@ func testHello() {
 ... you first you need to configure your `Application` object in a test environment. To do that I would recommend creating some form of a helper method that would allow you to access the functionality from any file.
 
 ```swift
-let app = new({ (config, env, services) in
+let app = Application.testable.new({ (config, env, services) in
     try! App.configure(&config, &env, &services)
 }) { (router) in
 
