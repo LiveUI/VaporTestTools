@@ -84,9 +84,9 @@ let app = new({ (config, env, services) in
 
 }
 ```
-* I would recommend to put the above initialization in a convenience method as described [here](#custom-application-convenience-method)
+<i>I would recommend to put the above initialization in a convenience method as described [here](#custom-application-convenience-method)</i>
 
-And finally create your test file
+And finally create your test file ... the whole thing could look like this:
 
 ```Swift
 import XCTest
@@ -97,6 +97,16 @@ import VaporTestTools
 class GenericControllerTests: XCTestCase {
     
     var app: Application!
+    
+    // MARK: Linux
+    
+    static let allTests = [
+        ("testHello", testHello),
+        ("testPing", testPing),
+        ("testNotFound", testNotFound),
+        ("testHash", testHash)
+    ]
+
     
     // MARK: Setup
     
@@ -158,6 +168,8 @@ class GenericControllerTests: XCTestCase {
 }
 
 ```
+
+Enjoy and let me know what you think ;)
 
 #### Custom `Application` convenience method
 
