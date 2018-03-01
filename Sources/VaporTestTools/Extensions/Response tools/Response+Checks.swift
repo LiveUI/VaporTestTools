@@ -17,7 +17,8 @@ extension TestableProperty where TestableType: Response {
         }
         
         if let value = value {
-            return header == value
+            // QUESTION: Do we want to be specific and use ==?
+            return header.contains(value)
         }
         else {
             return true
