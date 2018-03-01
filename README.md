@@ -187,6 +187,10 @@ class GenericControllerTests: XCTestCase {
 
 ```
 
+To see more examples in action, please see <b>VaporTestTools</b> in action:
+* [Boost - Enterprise AppStore for mobile apps](https://github.com/LiveUI/Boost/)
+   * [API core tests](https://github.com/LiveUI/Boost/tree/master/Tests/ApiCoreTests/Controllers)
+
 #### Custom `Application` convenience method
 
 In the following example (`Application+Testing.swift`) you can see an extension on a testable property which holds all the convenience methods. This will be available through `Application.testable.newTestApp()`
