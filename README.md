@@ -31,35 +31,6 @@ Import
 .package(url: "https://github.com/LiveUI/VaporTestTools.git", .branch("master"))
 ```
 
-Your whole `Package.swift` file could look something like this:
-```swift
-// swift-tools-version:4.0
-import PackageDescription
-
-let package = Package(
-    name: "MyApp",
-    dependencies: [
-        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-beta.3.1.3"),
-        .package(url: "https://github.com/LiveUI/VaporTestTools.git", from: "0.0.1")
-    ],
-    targets: [
-        .target(
-            name: "MyApp",
-            dependencies: [
-                "Vapor"
-            ]
-        ),
-        .target(name: "Run", dependencies: [
-            "MyApp"
-            ]),
-        .testTarget(name: "AppTests", dependencies: ["TestApp", "VaporTestTools"])
-    ]
-)
-```
-
-Notice the line `.testTarget(name: "AppTests", dependencies: ["TestApp", "VaporTestTools"])` where you create a test target and include `VaporTestTools`.
-
-
 ## Usage
 
 To write tests like this ...
@@ -218,6 +189,37 @@ extension TestableProperty where TestableType: Application {
     
 }
 ```
+
+## Example Package.swift for testing
+
+Your whole `Package.swift` file could look something like this:
+```swift
+// swift-tools-version:4.0
+import PackageDescription
+
+let package = Package(
+    name: "MyApp",
+    dependencies: [
+        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-beta.3.1.3"),
+        .package(url: "https://github.com/LiveUI/VaporTestTools.git", from: "0.0.1")
+    ],
+    targets: [
+        .target(
+            name: "MyApp",
+            dependencies: [
+                "Vapor"
+            ]
+        ),
+        .target(name: "Run", dependencies: [
+            "MyApp"
+            ]),
+        .testTarget(name: "AppTests", dependencies: ["TestApp", "VaporTestTools"])
+    ]
+)
+```
+
+Notice the line `.testTarget(name: "AppTests", dependencies: ["TestApp", "VaporTestTools"])` where you create a test target and include `VaporTestTools`.
+
 
 Enjoy and let me know what you think ;)
 
