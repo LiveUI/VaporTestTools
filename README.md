@@ -70,6 +70,9 @@ func testHello() {
     let res = app.testable.response(to: req)
 
     res.testable.debug() // Debug response into the console
+    
+    let hello = res.testable.content(as: Hello.self)!
+    XCTAssertEqual(hello.message, "hello world", "Message is incorrect")
 
     XCTAssertTrue(res.testable.has(statusCode: .ok), "Wrong status code")
     XCTAssertTrue(res.testable.has(contentType: "text/plain; charset=utf-8"), "Missing content type")
