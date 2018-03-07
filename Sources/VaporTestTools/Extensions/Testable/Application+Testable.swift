@@ -10,6 +10,9 @@ import Vapor
 import Routing
 
 
+public typealias TestResponse = (response: Response, request: Request)
+
+
 extension TestableProperty where TestableType: Application {
     
     public typealias AppConfigClosure = ((_ config: inout Config, _ env: inout Vapor.Environment, _ services: inout Services) -> Void)
@@ -29,16 +32,16 @@ extension TestableProperty where TestableType: Application {
         return app
     }
     
-    public func response(to request: HTTPRequest) -> Response {
+    public func response(to request: HTTPRequest) -> TestResponse {
         let responder = try! element.make(Responder.self)
         let wrappedRequest = Request(http: request, using: element)
-        return try! responder.respond(to: wrappedRequest).await(on: element)
+        return try! (response: responder.respond(to: wrappedRequest).await(on: element), request: wrappedRequest)
     }
     
-    public func response(throwingTo request: HTTPRequest) throws -> Response {
+    public func response(throwingTo request: HTTPRequest) throws -> TestResponse {
         let responder = try element.make(Responder.self)
         let wrappedRequest = Request(http: request, using: element)
-        return try responder.respond(to: wrappedRequest).await(on: element)
+        return try (response: responder.respond(to: wrappedRequest).await(on: element), request: wrappedRequest)
     }
     
     public func fakeRequest() -> Request {
