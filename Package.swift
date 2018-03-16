@@ -7,7 +7,7 @@ let package = Package(
         .library(name: "VaporTestTools", targets: ["VaporTestTools"]),
         ],
     dependencies: [
-        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-beta.3.1.3"),
+        .package(url: "https://github.com/vapor/vapor.git", .branch("nio")),
         ],
     targets: [
         .target(

@@ -14,8 +14,8 @@ extension TestableProperty where TestableType == Dictionary<String, String> {
     func asHTTPHeaders() -> HTTPHeaders {
         var headersObject = HTTPHeaders()
         for key in element.keys {
-            let value = element[key]
-            headersObject[HTTPHeaderName(key)] = value
+            let value = element[key]!
+            headersObject.replaceOrAdd(name: key, value: value)
         }
         return headersObject
     }

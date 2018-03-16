@@ -35,18 +35,18 @@ extension TestableProperty where TestableType: Application {
     public func response(to request: HTTPRequest) -> TestResponse {
         let responder = try! element.make(Responder.self)
         let wrappedRequest = Request(http: request, using: element)
-        return try! (response: responder.respond(to: wrappedRequest).await(on: element), request: wrappedRequest)
+        return try! (response: responder.respond(to: wrappedRequest).wait(), request: wrappedRequest)
     }
     
     public func response(throwingTo request: HTTPRequest) throws -> TestResponse {
         let responder = try element.make(Responder.self)
         let wrappedRequest = Request(http: request, using: element)
-        return try (response: responder.respond(to: wrappedRequest).await(on: element), request: wrappedRequest)
+        return try (response: responder.respond(to: wrappedRequest).wait(), request: wrappedRequest)
     }
     
     public func fakeRequest() -> Request {
-        let http = HTTPRequest(method: .get, uri: "/")
-        let req = Request.init(http: http, using: element)
+        let http = HTTPRequest(method: .GET, url: URL(string: "/")!)
+        let req = Request(http: http, using: element)
         return req
     }
     

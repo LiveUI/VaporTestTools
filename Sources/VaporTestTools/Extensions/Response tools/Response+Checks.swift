@@ -7,6 +7,7 @@
 
 import Foundation
 @testable import Vapor
+@testable import NIO
 
 
 extension TestableProperty where TestableType: Response {
@@ -40,21 +41,16 @@ extension TestableProperty where TestableType: Response {
         return has(header: headerName, value: String(value))
     }
     
-    public func has(statusCode value: Int) -> Bool {
-        let status = HTTPStatus(code: value)
-        return has(statusCode: status)
-    }
-    
-    public func has(statusCode value: Int, message: String) -> Bool {
-        return element.http.status.code == value && element.http.status.message == message
-    }
-    
     public func has(statusCode value: HTTPStatus) -> Bool {
-        return element.http.status.code == value.code
+        return has(statusCode: value)
     }
     
-    public func has(content value: String) -> Bool {
-        return contentString == value
+    public func has(statusCode value: HTTPStatus, message: String) -> Bool {
+        return element.http.status.code == value.code && element.http.status.reasonPhrase == message
     }
+    
+//    public func has(content value: String) -> Bool {
+//        return contentString == value
+//    }
     
 }

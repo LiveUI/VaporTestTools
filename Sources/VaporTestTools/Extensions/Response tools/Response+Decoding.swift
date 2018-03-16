@@ -12,7 +12,7 @@ import Vapor
 extension TestableProperty where TestableType: Response {
     
     public func content<T>(as type: T.Type) -> T? where T: Decodable {
-        let object = try? element.content.decode(type).await(on: element)
+        let object = try? element.content.decode(type).wait()
         return object
     }
     
