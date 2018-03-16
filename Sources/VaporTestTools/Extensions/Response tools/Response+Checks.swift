@@ -49,8 +49,8 @@ extension TestableProperty where TestableType: Response {
         return element.http.status.code == value.code && element.http.status.reasonPhrase == message
     }
     
-//    public func has(content value: String) -> Bool {
-//        return contentString == value
-//    }
+    public func has(content value: String) -> Bool {
+        return contentString == value
+    }
     
 }
