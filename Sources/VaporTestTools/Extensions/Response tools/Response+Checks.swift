@@ -42,7 +42,7 @@ extension TestableProperty where TestableType: Response {
     }
     
     public func has(statusCode value: HTTPStatus) -> Bool {
-        return has(statusCode: value)
+        return element.http.status.code == value.code
     }
     
     public func has(statusCode value: HTTPStatus, message: String) -> Bool {
