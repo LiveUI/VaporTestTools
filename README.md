@@ -24,7 +24,7 @@ To run the example project on a mac, clone the repo, and run `vapor xcode` to ge
 Import 
 
 ```swift
-.package(url: "https://github.com/LiveUI/VaporTestTools.git", from: "0.0.1")
+.package(url: "https://github.com/LiveUI/VaporTestTools.git", from: "0.1.1")
 
 // or to always get the latest changes
 
