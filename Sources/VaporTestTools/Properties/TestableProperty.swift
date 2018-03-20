@@ -10,7 +10,7 @@ import Foundation
 
 public struct TestableProperty<TestableType> {
     
-    public let element: TestableType
+    public var element: TestableType
     
     init(_ obj: TestableType) {
         element = obj
