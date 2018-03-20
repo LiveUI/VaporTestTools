@@ -11,7 +11,7 @@ Vaper test tools is (pretty much vhat it says on the tin) a set of methods desig
 
 ## Slack
 
-Get help using and installing this library on the Vapor [Slack](http://vapor.team), and look for <b>@rafiki270</b>
+Get help using and/or installing this library on the Vapor [Slack](http://vapor.team), and look for <b>@rafiki270</b>
 
 ## Example
 
