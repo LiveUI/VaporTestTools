@@ -9,13 +9,13 @@ import Foundation
 @testable import Service
 
 
-extension TestableProperty where TestableType == Services {
+extension Services {
     
     public mutating func remove<S>(type: S.Type) {
-        if let existing = element.factories.index(where: {
+        if let existing = factories.index(where: {
             $0.serviceType is S.Type
         }) {
-            element.factories.remove(at: existing)
+            factories.remove(at: existing)
         }
     }
     

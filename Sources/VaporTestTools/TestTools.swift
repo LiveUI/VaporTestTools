@@ -36,7 +36,6 @@ extension Request: Testable { }
 extension HTTPRequest: Testable { }
 extension Response: Testable { }
 extension Application: Testable { }
-extension Services: Testable { }
 
 
 extension Dictionary: Testable where Key == String, Value == String {
