@@ -38,7 +38,8 @@ To write tests like this ...
 ```Swift
 func testHello() {
     let req = HTTPRequest.testable.get(uri: "/hello")
-    let res = app.testable.response(to: req)
+    let r = app.testable.response(to: req)
+    let res = r.response
 
     res.testable.debug() // Debug response into the console
     
@@ -98,7 +99,8 @@ class GenericControllerTests: XCTestCase {
     
     func testHello() {
         let req = HTTPRequest.testable.get(uri: "/hello")
-        let res = app.testable.response(to: req)
+        let r = app.testable.response(to: req)
+        let res = r.response
         
         res.testable.debug()
         
@@ -110,7 +112,8 @@ class GenericControllerTests: XCTestCase {
     
     func testPing() {
         let req = HTTPRequest.testable.get(uri: "/ping")
-        let res = app.testable.response(to: req)
+        let r = app.testable.response(to: req)
+        let res = r.response
         
         // Print out info about the Response
         res.testable.debug()
@@ -136,7 +139,8 @@ class GenericControllerTests: XCTestCase {
     
     func testNotFound() {
         let req = HTTPRequest.testable.get(uri: "/not-found")
-        let res = app.testable.response(to: req)
+        let r = app.testable.response(to: req)
+        let res = r.response
         
         res.testable.debug()
         
@@ -148,7 +152,8 @@ class GenericControllerTests: XCTestCase {
     
     func testHash() {
         let req = HTTPRequest.testable.get(uri: "/hash/something")
-        let res = app.testable.response(to: req)
+        let r = app.testable.response(to: req)
+        let res = r.response
         
         res.testable.debug()
         
