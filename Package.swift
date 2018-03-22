@@ -4,11 +4,14 @@ import PackageDescription
 let package = Package(
     name: "VaporTestTools",
     products: [
-        .library(name: "VaporTestTools", targets: ["VaporTestTools"]),
-        ],
+        .library(
+            name: "VaporTestTools",
+            targets: ["VaporTestTools"]
+        ),
+    ],
     dependencies: [
-        .package(url: "https://github.com/vapor/vapor.git", .branch("nio")),
-        ],
+        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-rc.2")
+    ],
     targets: [
         .target(
             name: "VaporTestTools",
@@ -22,9 +25,12 @@ let package = Package(
                 "Vapor"
             ]
         ),
-        .target(name: "RunVaporTestTools", dependencies: [
-            "AppVaporTestTools"
-            ]),
+        .target(
+            name: "RunVaporTestTools",
+            dependencies: [
+                "AppVaporTestTools"
+            ]
+        ),
         .testTarget(name: "VaporTestToolsTests", dependencies: ["AppVaporTestTools", "VaporTestTools"])
     ]
 )
