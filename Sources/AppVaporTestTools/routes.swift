@@ -13,7 +13,7 @@ public func routes(_ router: Router) throws {
     
     router.get("ping") { (req)->Future<MyObject> in
         let ping = "{ \"code\": \"pong\" }"
-        return try JSONDecoder().decode(MyObject.self, from: HTTPBody(string: ping))
+        return try JSONDecoder().decode(MyObject.self, from: HTTPBody(string: ping), maxSize: 500, on: req)
     }
     
     // Example of creating a Service and using it.

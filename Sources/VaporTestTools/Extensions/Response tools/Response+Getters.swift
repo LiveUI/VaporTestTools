@@ -27,22 +27,22 @@ extension TestableProperty where TestableType: Response {
     }
     
     public var contentSize: Int? {
-        return element.content.body?.count
+        return element.content.body.count
     }
     
     public var contentString: String? {
         
-        guard let data = try? element.content.body?.consumeData(max: 500000, on: fakeRequest()).wait() else {
+        guard let data = try? element.content.body.consumeData(max: 500000, on: fakeRequest()).wait() else {
             return nil
         }
-        return String(data: data!, encoding: .utf8)
+        return String(data: data, encoding: .utf8)
     }
     
     public func contentString(encoding: String.Encoding) -> String? {
-        guard let data = try? element.content.body?.consumeData(max: 500000, on: fakeRequest()).wait() else {
+        guard let data = try? element.content.body.consumeData(max: 500000, on: fakeRequest()).wait() else {
             return nil
         }
-        return String(data: data!, encoding: encoding)
+        return String(data: data, encoding: encoding)
     }
     
 }

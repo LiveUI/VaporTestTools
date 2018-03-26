@@ -19,7 +19,7 @@ extension TestableProperty where TestableType: Response {
             print("\t\(header.name.description) = \(header.value)")
         }
         print("Content:")
-        if let size = element.content.body?.count {
+        if let size = element.content.body.count {
             print("\tSize: \(String(size))")
         }
         if let mediaType = element.content.mediaType {
