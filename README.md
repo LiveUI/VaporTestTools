@@ -1,4 +1,6 @@
-# VaporTestTools
+![Vapor 3 test tools](https://github.com/LiveUI/VaporTestTools/raw/master/Other/logo.png)
+
+##
 
 [![Slack](http://vapor.team/badge.svg?style=flat)](http://vapor.team)
 [![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
