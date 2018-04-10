@@ -3,6 +3,8 @@
 ##
 
 [![Slack](http://vapor.team/badge.svg?style=flat)](http://vapor.team)
+[![Jenkins](https://ci.liveui.io/job/LiveUI/job/VaporTestTools/job/master/badge/icon)](https://ci.liveui.io/job/LiveUI/job/VaporTestTools/)
+[![Platforms](https://img.shields.io/badge/platforms-macOS%2010.13%20|%20Ubuntu%2016.04%20LTS-ff0000.svg?style=flat)](https://github.com/LiveUI/VaporTestTools)
 [![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![License](https://img.shields.io/badge/license-MIT-CCCCCC.svg?style=flat)](http://cocoapods.org/pods/Presentables)
 [![Platform](https://img.shields.io/badge/framework-Vapor3-FF0000.svg?style=flat)](http://cocoapods.org/pods/Presentables)
