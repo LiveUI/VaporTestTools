@@ -232,7 +232,7 @@ Enjoy and let me know what you think ;)
 
 ## Author
 
-Ondrej Rafaj, dev@mangoweb.cz
+Ondrej Rafaj (@rafiki270 on [Github](https://github.com/rafiki270), [Twitter](https://twitter.com/rafiki270), [LiveUI Slack](http://bit.ly/2B0dEyt) and [Vapor Slack](https://vapor.team/))
 
 ## License
 
