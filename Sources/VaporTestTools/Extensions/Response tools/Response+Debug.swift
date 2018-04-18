@@ -11,6 +11,7 @@ import Foundation
 
 extension TestableProperty where TestableType: Response {
     
+    /// Prints out useful information out the response
     public func debug() {
         print("Debugging response:")
         print("HTTP [\(element.http.version.major).\(element.http.version.minor)] with status code [\(element.http.status.code)]")
@@ -19,10 +20,10 @@ extension TestableProperty where TestableType: Response {
             print("\t\(header.name.description) = \(header.value)")
         }
         print("Content:")
-        if let size = element.content.body.count {
+        if let size = element.content.container.http.body.count {
             print("\tSize: \(String(size))")
         }
-        if let mediaType = element.content.mediaType {
+        if let mediaType = element.content.container.http.mediaType {
             print("\tMedia type: \(mediaType.description)")
         }
         if let stringContent = element.testable.contentString {

@@ -11,6 +11,7 @@ import Foundation
 
 extension Services {
     
+    /// Remove particular service
     public mutating func remove<S>(type: S.Type) {
         if let existing = factories.index(where: {
             $0.serviceType is S.Type

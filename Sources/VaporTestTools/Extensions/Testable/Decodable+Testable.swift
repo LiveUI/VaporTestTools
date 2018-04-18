@@ -9,7 +9,8 @@ import Foundation
 
 
 extension TestableProperty where TestableType: Decodable {
-
+    
+    /// Make accessor
     public static var make: TestableProperty<TestableType>.Type {
         return TestableProperty<TestableType>.self
     }
@@ -19,6 +20,7 @@ extension TestableProperty where TestableType: Decodable {
 
 extension TestableProperty where TestableType: Decodable {
     
+    /// Decode data from JSON source
     public static func fromJSON(fileNamed fileName: String, ofType type: String? = nil, inBundle bundle: Bundle? = nil) -> TestableType {
         var bundle = bundle
         if bundle == nil {
@@ -31,11 +33,13 @@ extension TestableProperty where TestableType: Decodable {
         return fromJSON(file: url)
     }
     
+    /// Decode data from JSON source
     public static func fromJSON(file fileUrl: URL) -> TestableType {
         let data = try! Data(contentsOf: fileUrl)
         return fromJSON(data: data)
     }
     
+    /// Decode data from JSON source
     public static func fromJSON(string: String) -> TestableType {
         guard let data = string.data(using: .utf8) else {
             fatalError("Invalid string")
@@ -43,6 +47,7 @@ extension TestableProperty where TestableType: Decodable {
         return fromJSON(data: data)
     }
     
+    /// Decode data from JSON source
     public static func fromJSON(data: Data) -> TestableType {
         let decoder = JSONDecoder()
         let object = try! decoder.decode(TestableType.self, from: data)

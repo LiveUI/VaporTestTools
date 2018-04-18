@@ -11,8 +11,10 @@ import Vapor
 
 extension TestableProperty where TestableType: Request {
     
+    /// HTTPRequest access from request
     public static var http: TestableProperty<HTTPRequest>.Type {
         return TestableProperty<HTTPRequest>.self
     }
     
 }
+
