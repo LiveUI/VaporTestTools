@@ -42,8 +42,7 @@ To write tests like this ...
 ```Swift
 func testHello() {
     let req = HTTPRequest.testable.get(uri: "/hello")
-    let r = app.testable.response(to: req)
-    let res = r.response
+    let res = app.testable.response(to: req).response
 
     res.testable.debug() // Debug response into the console
     
