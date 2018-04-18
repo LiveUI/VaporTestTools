@@ -230,7 +230,23 @@ let package = Package(
 Notice the line `.testTarget(name: "AppTests", dependencies: ["TestApp", "VaporTestTools"])` where you create a test target and include `VaporTestTools`.
 
 
-Enjoy and let me know what you think ;)
+Don't forget to star the repo if you think it deserves it! :)
+
+Have fun testing!
+
+## Boost - Open source enterprise AppStore
+
+**VaporTestTools** has been released as a part of a Boost mobile app distribution platform.
+
+More info on http://www.boostappstore.com
+
+Other components in the bundle are:
+
+* [BoostCore](https://github.com/LiveUI/BoostCore/) - AppStore core module
+* [ApiCore](https://github.com/LiveUI/ApiCore/) - Base user & team management including forgotten passwords, etc ...
+* [MailCore](https://github.com/LiveUI/MailCore/) - Mailing wrapper for multiple mailing services like MailGun, SendGrig or SMTP (coming)
+* [DBCore](https://github.com/LiveUI/DbCore/) - Set of tools for work with PostgreSQL database
+
 
 ## Author
 
