@@ -23,7 +23,7 @@ extension TestableProperty where TestableType: Response {
         if let size = element.content.container.http.body.count {
             print("\tSize: \(String(size))")
         }
-        if let mediaType = element.content.container.http.mediaType {
+        if let mediaType = element.content.container.http.contentType {
             print("\tMedia type: \(mediaType.description)")
         }
         if let stringContent = element.testable.contentString {
