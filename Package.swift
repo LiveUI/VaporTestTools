@@ -10,6 +10,7 @@ let package = Package(
         ),
     ],
     dependencies: [
+        .package(url: "https://github.com/apple/swift-nio.git", from: "1.8.0"),
         .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0")
     ],
     targets: [
@@ -31,7 +32,15 @@ let package = Package(
                 "AppVaporTestTools"
             ]
         ),
-        .testTarget(name: "VaporTestToolsTests", dependencies: ["AppVaporTestTools", "VaporTestTools"])
+        .testTarget(
+            name: "VaporTestToolsTests",
+            dependencies: [
+                "NIO",
+                "Vapor",
+                "AppVaporTestTools",
+                "VaporTestTools"
+            ]
+        )
     ]
 )
 
