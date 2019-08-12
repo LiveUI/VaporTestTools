@@ -13,7 +13,7 @@ import Foundation
 extension TestableProperty where TestableType: Response {
     
     /// Test header value
-    public func has(header name: HTTPHeaderName, value: String? = nil) -> Bool {
+    public func has(header name: HTTPHeaders.Name, value: String? = nil) -> Bool {
         guard let header = header(name: name) else {
             return false
         }
@@ -29,30 +29,30 @@ extension TestableProperty where TestableType: Response {
     
     /// Test header value
     public func has(header name: String, value: String? = nil) -> Bool {
-        let headerName = HTTPHeaderName(name)
+        let headerName = HTTPHeaders.Name(name)
         return has(header: headerName, value: value)
     }
     
     /// Test header Content-Type
     public func has(contentType value: String) -> Bool {
-        let headerName = HTTPHeaderName("Content-Type")
+        let headerName = HTTPHeaders.Name("Content-Type")
         return has(header: headerName, value: value)
     }
     
     /// Test header Content-Length
     public func has(contentLength value: Int) -> Bool {
-        let headerName = HTTPHeaderName("Content-Length")
+        let headerName = HTTPHeaders.Name("Content-Length")
         return has(header: headerName, value: String(value))
     }
     
     /// Test response status code
     public func has(statusCode value: HTTPStatus) -> Bool {
-        return element.http.status.code == value.code
+        return element.status.code == value.code
     }
     
     /// Test response status code and message
     public func has(statusCode value: HTTPStatus, message: String) -> Bool {
-        return element.http.status.code == value.code && element.http.status.reasonPhrase == message
+        return element.status.code == value.code && element.status.reasonPhrase == message
     }
     
     /// Test response content

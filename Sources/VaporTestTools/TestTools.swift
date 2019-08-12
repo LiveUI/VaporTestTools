@@ -41,7 +41,6 @@ extension Testable {
 // MARK: Supported types
 
 extension Request: Testable { }
-extension HTTPRequest: Testable { }
 extension Response: Testable { }
 extension Application: Testable { }
 

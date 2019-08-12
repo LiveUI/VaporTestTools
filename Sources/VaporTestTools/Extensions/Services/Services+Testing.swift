@@ -6,18 +6,19 @@
 //
 
 import Foundation
-@testable import Service
+@testable import Vapor
 
 
 extension Services {
     
     /// Remove particular service
     public mutating func remove<S>(type: S.Type) {
-        if let existing = factories.index(where: {
-            $0.serviceType is S.Type
-        }) {
-            factories.remove(at: existing)
-        }
+        fatalError()
+//        if let existing = factories.index(where: {
+//            $0.serviceType is S.Type
+//        }) {
+//            factories.remove(at: existing)
+//        }
     }
     
 }

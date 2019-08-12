@@ -10,13 +10,12 @@
 @_exported @testable import NIO
 
 
-extension TestableProperty where TestableType == HTTPRequest {
+extension TestableProperty where TestableType == Request {
     
     /// Make response
-    func response(using app: Application) -> Response {
-        let responder = try! app.make(Responder.self)
-        let wrappedRequest = Request(http: element, using: app)
-        return try! responder.respond(to: wrappedRequest).wait()
+    func response(using c: Container) -> Response {
+        let responder = try! c.make(Responder.self)
+        return try! responder.respond(to: element).wait()
     }
     
 }

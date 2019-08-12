@@ -14,18 +14,18 @@ extension TestableProperty where TestableType: Response {
     /// Prints out useful information out the response
     public func debug() {
         print("Debugging response:")
-        print("HTTP [\(element.http.version.major).\(element.http.version.minor)] with status code [\(element.http.status.code)]")
+        print("HTTP [\(element.version.major).\(element.version.minor)] with status code [\(element.status.code)]")
         print("Headers:")
-        for header in element.http.headers {
+        for header in element.headers {
             print("\t\(header.name.description) = \(header.value)")
         }
         print("Content:")
-        if let size = element.content.container.http.body.count {
-            print("\tSize: \(String(size))")
-        }
-        if let mediaType = element.content.container.http.contentType {
-            print("\tMedia type: \(mediaType.description)")
-        }
+//        if let size = element.content.container.body.count {
+//            print("\tSize: \(String(size))")
+//        }
+//        if let mediaType = element.content.container.contentType {
+//            print("\tMedia type: \(mediaType.description)")
+//        }
         if let stringContent = element.testable.contentString {
             print("\tContent:\n\(stringContent)")
         }
