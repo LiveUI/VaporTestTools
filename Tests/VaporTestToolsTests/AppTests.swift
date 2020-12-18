@@ -53,9 +53,9 @@ class GenericControllerTests: XCTestCase {
         res.testable.debug()
         
         XCTAssertTrue(res.testable.has(statusCode: .notFound), "Wrong status code")
-        XCTAssertFalse(res.testable.has(header: "Content-Type"), "Should not content type")
-        XCTAssertTrue(res.testable.has(contentLength: 9), "Wrong content length")
-        XCTAssertTrue(res.testable.has(content: "Not found"), "Incorrect content")
+        XCTAssertTrue(res.testable.has(header: "Content-Type"), "Should not content type")
+        XCTAssertTrue(res.testable.has(contentLength: 35), "Wrong content length")
+        XCTAssertTrue(res.testable.has(content: #"{"error":true,"reason":"Not Found"}"#), "Incorrect content")
     }
     
 }

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-@testable import Vapor
-@testable import NIO
+import Vapor
+import NIO
 
 
 extension TestableProperty where TestableType: Response {

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-@testable import Vapor
-@testable import NIO
+import Vapor
+import NIO
 
 
 extension TestableProperty where TestableType: Response {
@@ -32,23 +32,21 @@ extension TestableProperty where TestableType: Response {
     
     /// Size of the content
     public var contentSize: Int? {
-        return element.content.container.http.body.data?.count
+        return contentString?.count   
     }
     
     /// Get content string. Maximum of 0.5Mb of text will be returned
     public var contentString: String? {
-        guard let data = try? element.content.container.http.body.consumeData(max: 500000, on: fakeRequest()).wait() else {
-            return nil
-        }
-        return String(data: data, encoding: .utf8)
+        return contentString(encoding: .utf8)
     }
     
     /// Get content string with encoding. Maximum of 0.5Mb of text will be returned
     public func contentString(encoding: String.Encoding) -> String? {
-        guard let data = try? element.content.container.http.body.consumeData(max: 500000, on: fakeRequest()).wait() else {
+        guard let data = try? element.http.body.consumeData(on: element).wait() else {
             return nil
         }
-        return String(data: data, encoding: encoding)
+        let string = String(data: data, encoding: encoding)
+        return string
     }
     
 }
