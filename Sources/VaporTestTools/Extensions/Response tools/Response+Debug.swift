@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import Vapor
+import Vapor
 
 
 extension TestableProperty where TestableType: Response {
@@ -20,10 +20,10 @@ extension TestableProperty where TestableType: Response {
             print("\t\(header.name.description) = \(header.value)")
         }
         print("Content:")
-        if let size = element.content.container.http.body.count {
+        if let size = element.testable.contentSize {
             print("\tSize: \(String(size))")
         }
-        if let mediaType = element.content.container.http.contentType {
+        if let mediaType = element.http.contentType {
             print("\tMedia type: \(mediaType.description)")
         }
         if let stringContent = element.testable.contentString {
